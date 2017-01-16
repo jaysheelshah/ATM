@@ -7,6 +7,8 @@ package com.ouratm.model;
  * @author jaysheelshah
  *
  */
-public interface IRules {
-
+public enum TransactionType {
+	CHECK_BALANCE,
+	DEPOSIT,
+	WITHDRAW
 }

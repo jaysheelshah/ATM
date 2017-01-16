@@ -9,4 +9,9 @@ package com.ouratm.model;
  */
 public class Deposit extends Transaction {
 
+	@Override
+	public void executeAction() {
+		System.out.println("Transaction: Executing a deposit.");		
+	}
+
 }

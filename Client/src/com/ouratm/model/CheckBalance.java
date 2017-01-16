@@ -9,4 +9,8 @@ package com.ouratm.model;
  */
 public class CheckBalance extends Transaction {
 
+	@Override
+	public void executeAction() {
+		System.out.println("Transaction: Checking the balance.");	
+	}
 }
