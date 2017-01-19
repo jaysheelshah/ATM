@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.ouratm.model;
 
@@ -8,5 +8,5 @@ package com.ouratm.model;
  *
  */
 public abstract class Rule {
-	public abstract boolean doAction();
+	public abstract boolean execute();
 }
