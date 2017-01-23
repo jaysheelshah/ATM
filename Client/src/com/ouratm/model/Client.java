@@ -13,28 +13,16 @@ public class Client {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		TransactionFactory transactionFactory = new TransactionFactory();
+		AccountInfo acInfo = new AccountInfo(AccountType.Checking, 10000.23, "My awesome checking account");
+		
+		System.out.println("Balance: " + acInfo.getBalance());
+		
 		TransactionType tType = TransactionType.WITHDRAW;
-		Transaction tr = transactionFactory.getTransaction(tType);
+		Transaction tr = TransactionFactory.getTransaction(tType);
+		tr.setAccountInfo(acInfo);
+		tr.setOperationAmount(100);
+		tr.process();
 		
-		switch(tType) {
-		case CHECK_BALANCE : 
-			System.out.println("Client: Just checking the balance.");
-			break;
-		case DEPOSIT :
-			System.out.println("Client: Making a deposit.");
-			break;
-		case WITHDRAW :
-			Rule ruleCanWithdrawFrom = new CanWithdrawFrom(); 
-			tr.rules.add(ruleCanWithdrawFrom);
-			System.out.println("Client: Please give me some moolah.");
-			break;
-		default:
-			throw new IllegalArgumentException("Client: Bad Transaction type entered: " + tType); 
-		}
-		
-		if(tr.executeRules()) {
-			tr.executeAction();
-		}
+		System.out.println("New Balance: " + acInfo.getBalance());
 	}
 }

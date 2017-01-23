@@ -8,7 +8,11 @@ package com.ouratm.model;
  *
  */
 public class CheckBalance extends Transaction {
-
+	
+	public CheckBalance(TransactionType type) {
+		super(type);
+	}
+	
 	@Override
 	public void executeAction() {
 		System.out.println("Transaction: Checking the balance.");	

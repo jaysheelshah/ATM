@@ -8,10 +8,14 @@ package com.ouratm.model;
  *
  */
 public class Withdraw extends Transaction {
-
+	
+	public Withdraw(TransactionType type) {
+		super(type);
+	}
+	
 	@Override
 	public void executeAction() {
-		System.out.println("Transaction: Withdrawing money.");
+		System.out.println("Dispensing amount: " + operationAmount);
+		acInfo.setBalance(acInfo.getBalance() - operationAmount);
 	}
-
 }

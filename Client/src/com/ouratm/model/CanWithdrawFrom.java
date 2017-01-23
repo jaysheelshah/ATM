@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.ouratm.model;
 
@@ -7,9 +7,8 @@ package com.ouratm.model;
  * @author jaysh_000
  *
  */
-public class CanWithdrawFrom extends Rule{
-	public boolean doAction() {
-		System.out.println("Rule: Executing can withdraw from.");
-		return true;
+public class CanWithdrawFrom extends Rule {
+	public boolean execute(AccountInfo acInfo, double operationAmount) {		
+		return (acInfo.getBalance() > operationAmount);			
 	}
 }

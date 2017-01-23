@@ -8,6 +8,10 @@ package com.ouratm.model;
  *
  */
 public class Deposit extends Transaction {
+	
+	public Deposit(TransactionType type) {
+		super(type);
+	}
 
 	@Override
 	public void executeAction() {

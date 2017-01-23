@@ -1,9 +1,7 @@
 /**
- * 
+ *
  */
 package com.ouratm.model;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,21 +9,39 @@ import java.util.List;
  *
  */
 public abstract class Transaction {
+
+	protected AccountInfo acInfo = null;
+	protected double operationAmount = 0;
+	private TransactionType tType; 
 	
-	List<Rule> rules = null;
+	protected Transaction() {}
 	
-	public Transaction() {
-		this.rules = new ArrayList<Rule>();
+	protected Transaction(TransactionType type) {
+		this.tType = type;
+	}
+	
+	public void setAccountInfo(AccountInfo acInfo) {
+		this.acInfo = acInfo;
+	}
+	
+	public void setOperationAmount(double amount) {
+		this.operationAmount = amount;
 	}
 	
 	public abstract void executeAction();
-	
-	public boolean executeRules() {
+
+	public boolean process() {
 		boolean result = true;
-		for(Rule rule : this.rules) {
-			result &= rule.doAction();
-		}
 		
+		List<Rule> rules = RuleFactory.getRules(this.tType);
+		
+		for(Rule rule : rules) {
+			result &= rule.execute(this.acInfo, operationAmount);
+		}
+
+		if(result)
+			executeAction();
+
 		return result;
 	}
 }

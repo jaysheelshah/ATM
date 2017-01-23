@@ -9,14 +9,14 @@ package com.ouratm.model;
  */
 public class TransactionFactory {
 	
-	public Transaction getTransaction(TransactionType transactionType) {
+	public static Transaction getTransaction(TransactionType transactionType) {
 		switch(transactionType) {
 		case CHECK_BALANCE : 
-			return new CheckBalance();
+			return new CheckBalance(transactionType);
 		case DEPOSIT :
-			return new Deposit();
+			return new Deposit(transactionType);
 		case WITHDRAW : 
-			return new Withdraw();
+			return new Withdraw(transactionType);
 		default:
 			throw new IllegalArgumentException("TransactionFactory: Bad Transaction type entered: " + transactionType);
 		}
