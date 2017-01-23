@@ -10,16 +10,9 @@ package com.ouratm.model;
 public class AccountInfo {
     private AccountType accountType;
     private double balance;
-<<<<<<< HEAD
     private String accountName;
 
-    public AccountInfo(AccountType type, double balance, String name)
-=======
-    private string accountName;
-
-    public AccountInfo(AccountType type, double balance, string name)
->>>>>>> a355abc21031ed5c312fb39209231639312347a7
-    {
+    public AccountInfo(AccountType type, double balance, String name) {
         this.accountType = type;
         this.balance = balance;
         this.accountName = name;
@@ -35,7 +28,6 @@ public class AccountInfo {
         return this.balance;
     }
 
-<<<<<<< HEAD
     public String getAccountName()
     {
         return this.accountName;
@@ -45,12 +37,4 @@ public class AccountInfo {
     {
     	this.balance = amount;
     }
-=======
-    public string getAccountName()
-    {
-        return this.accountName;
-    }
->>>>>>> a355abc21031ed5c312fb39209231639312347a7
 }
-
-
