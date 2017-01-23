@@ -10,6 +10,7 @@ import java.util.List;
  */
 public abstract class Transaction {
 
+<<<<<<< HEAD
 	protected AccountInfo acInfo = null;
 	protected double operationAmount = 0;
 	private TransactionType tType; 
